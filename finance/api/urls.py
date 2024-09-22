@@ -3,7 +3,9 @@ from . import views
 
 
 urlpatterns = [
+    path('', views.login, name='login'),
     path('cadastro/',views.cadastro, name='cadastro'),
-    path('login/', views.login, name='login'),
-    path('plataforma/', views.plataforma, name='plataforma')
+    path('app/homepage', views.homepage, name='homepage'),
+    path('app/accountingManagement', views.accountingManagement, name='accountingManagement'),
+    path('app/financialReport', views.financialReport, name='financialReport')
 ]
