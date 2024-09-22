@@ -15,7 +15,7 @@
         .sidebar {
             width: 60px; /* Largura da sidebar com ícones */
             height: 100vh; /* Ocupa toda a altura da tela */
-            background-color: #007bff;
+            background-color: #1d9aab;
             color: white;
             padding: 20px 0;
             box-sizing: border-box; /* Inclui padding na largura total */
@@ -27,7 +27,7 @@
             color: white;
             text-decoration: none;
             margin: 20px 0;
-            font-size: 24px; /* Tamanho do ícone */
+            font-size: 18px; /* Tamanho do ícone */
         }
         .sidebar a:hover {
             color: #0056b3; /* Cor ao passar o mouse */
@@ -85,39 +85,20 @@
 <body>
 
     <div class="sidebar">
-        <a href="#"><i class="fas fa-home"></i></a> <!-- Home Page -->
-        <a href="#"><i class="fas fa-calculator"></i></a> <!-- Gestão Contábil -->
-        <a href="#"><i class="fas fa-file-alt"></i></a> <!-- Relatórios Financeiros -->
-        <a href="#" onclick="toggleSettings()"><i class="fas fa-cog"></i></a> <!-- Settings -->
+        <a href="homepage"><i class="fas fa-home"></i></a>
+        <a href="accountingManagement"><i class="fas fa-calculator"></i></a>
+        <a href="financialReport"><i class="fas fa-file-alt"></i></a>
+        <a href="#" onclick="toggleSettings()"><i class="fas fa-cog"></i></a>
         <div id="settings-menu" style="display:none; text-align:center;">
-            <a href="#" onclick="openPopup()"><i class="fas fa-user-plus"></i></a> <!-- Cadastrar Usuário -->
+            <a href="#" onclick="openPopup()"><i class="fas fa-user-plus"></i></a>
         </div>
     </div>
 
     <div class="main">
-        <h2>Lista de Usuários</h2>
-        <button onclick="openPopup()">Cadastrar Novo Usuário</button>
+        <h3>Hi-low Finance | Financial Reports</h3>
         
-        <table>
-            <thead>
-                <tr>
-                    <th>Username</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for user in users %}
-                <tr>
-                    <td>{{ user.username }}</td>
-                    <td>{{ user.email }}</td>
-                </tr>
-                {% empty %}
-                <tr>
-                    <td colspan="2">Nenhum usuário cadastrado.</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        
+        
     </div>
 
     <div class="overlay" id="overlay" onclick="closePopup()"></div>

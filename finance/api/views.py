@@ -37,10 +37,21 @@ def login(request):
         if user:
             login_django(request, user)
 
-            return HttpResponse('autenticado')
+            return render(request, 'homepage.html')
+            
         else: 
             return HttpResponse('Email ou senha invalidos')
     
-@login_required(login_url="/auth/login/")
+@login_required(login_url="login/")
 def plataforma(request):
     return HttpResponse('plataforma')
+
+
+def homepage(request):
+    return render(request, 'homepage.html')
+
+def accountingManagement(request):
+    return render(request, 'accountingManagement.html')
+
+def financialReport(request):
+    return render(request, 'financialReport.html')
