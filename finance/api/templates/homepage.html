@@ -1,50 +1,19 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Usuários</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            display: flex;
-            background-color: #f0f0f0;
-        }
-        .sidebar {
-            width: 60px; /* Largura da sidebar com ícones */
-            height: 100vh; /* Ocupa toda a altura da tela */
-            background-color: #1d9aab;
-            color: white;
-            padding: 20px 0;
-            box-sizing: border-box; /* Inclui padding na largura total */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .sidebar a {
-            color: white;
-            text-decoration: none;
-            margin: 20px 0;
-            font-size: 18px; /* Tamanho do ícone */
-        }
-        .sidebar a:hover {
-            color: #0056b3; /* Cor ao passar o mouse */
-        }
+
         .main {
             flex-grow: 1;
             padding: 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
         }
         button {
             background-color: #007bff;
@@ -53,7 +22,7 @@
             border-radius: 5px;
             cursor: pointer;
             padding: 10px;
-            width: 100%; /* Ocupa toda a largura do botão */
+            width: 100%;
         }
         button:hover {
             background-color: #0056b3;
@@ -80,28 +49,21 @@
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 999;
         }
+
     </style>
 </head>
 <body>
 
-    <div class="sidebar">
-        <a href="homepage"><i class="fas fa-home"></i></a>
-        <a href="accountingManagement"><i class="fas fa-calculator"></i></a>
-        <a href="financialReport"><i class="fas fa-file-alt"></i></a>
-        <a href="#" onclick="toggleSettings()"><i class="fas fa-cog"></i></a>
-        <div id="settings-menu" style="display:none; text-align:center;">
-            <a href="#" onclick="openPopup()"><i class="fas fa-user-plus"></i></a>
-        </div>
-    </div>
-
+    {% include 'sidebar.html' %} 
+    
     <div class="main">
         <h3>Hi-low Finance | Home Page</h3>
-        
     </div>
 
     <div class="overlay" id="overlay" onclick="closePopup()"></div>
     <div class="popup" id="popup">
         <h2>Cadastro</h2>
+        
         <form action="{% url 'cadastro' %}" method="post">{% csrf_token %}
             <input type="text" name="username" placeholder="Username" required>
             <input type="email" name="email" placeholder="Email" required>

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -84,15 +85,7 @@
 </head>
 <body>
 
-    <div class="sidebar">
-        <a href="#"><i class="fas fa-home"></i></a> <!-- Home Page -->
-        <a href="#"><i class="fas fa-calculator"></i></a> <!-- Gestão Contábil -->
-        <a href="#"><i class="fas fa-file-alt"></i></a> <!-- Relatórios Financeiros -->
-        <a href="#" onclick="toggleSettings()"><i class="fas fa-cog"></i></a> <!-- Settings -->
-        <div id="settings-menu" style="display:none; text-align:center;">
-            <a href="#" onclick="openPopup()"><i class="fas fa-user-plus"></i></a> <!-- Cadastrar Usuário -->
-        </div>
-    </div>
+    {% include 'myapp/sidebar.html' %} 
 
     <div class="main">
         <h2>Lista de Usuários</h2>
