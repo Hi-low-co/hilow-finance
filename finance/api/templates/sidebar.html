@@ -1,0 +1,30 @@
+{% load static %}
+<div class="sidebar">
+    <div class="container">
+        <img src="{% static 'img/hilow_logo.png' %}" alt="Minha Figura">
+    </div>
+
+    <a href="homepage" class="{% if request.path == '/app/homepage' %}active{% endif %}">
+        <i class="fas fa-home"></i>
+        <span>Home Page</span>
+    </a>
+    <a href="accountingManagement" class="{% if request.path == '/app/accountingManagement' %}active{% endif %}">
+        <i class="fas fa-calculator"></i>
+        <span>Gestão Contábil</span>
+    </a>
+    <a href="financialReport" class="{% if request.path == '/app/financialReport' %}active{% endif %}">
+        <i class="fas fa-file-alt"></i>
+        <span>Relatórios Financeiros</span>
+    </a>
+    <a href="#" onclick="toggleSettings()" class="{% if request.path == '/app/settings/' %}active{% endif %}">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+    </a>
+    <div id="settings-menu" style="display:none; text-align:center;">
+        <a href="#" onclick="openPopup()">
+            <i class="fas fa-user-plus"></i>
+            <span>Cadastro de Usuários</span>
+        </a>
+    </div>
+</div>
+
