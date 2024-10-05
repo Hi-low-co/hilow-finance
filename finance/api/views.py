@@ -45,13 +45,15 @@ def login(request):
 @login_required(login_url="login/")
 def plataforma(request):
     return HttpResponse('plataforma')
+    
 
 
 def homepage(request):
-    return render(request, 'homepage.html')
+    return render(request, 'homepage.html', {'page_title': 'Home Page'})
+
 
 def accountingManagement(request):
-    return render(request, 'accountingManagement.html')
+    return render(request, 'accountingManagement.html', {'page_title': 'Accounting Management'})
 
 def financialReport(request):
-    return render(request, 'financialReport.html')
+    return render(request, 'financialReport.html', {'page_title': 'Financial Reports'})
