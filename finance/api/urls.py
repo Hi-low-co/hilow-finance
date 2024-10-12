@@ -9,3 +9,4 @@ urlpatterns = [
     path('app/accountingManagement', views.accountingManagement, name='accountingManagement'),
     path('app/financialReport', views.financialReport, name='financialReport')
 ]
+
