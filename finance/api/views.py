@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_django
 from django.contrib.auth.decorators import login_required
 
+from .models import FinancialRecord
+
 # Create your views here.
 def cadastro(request):
     if request.method == "GET":
@@ -53,7 +55,10 @@ def homepage(request):
 
 
 def accountingManagement(request):
-    return render(request, 'accountingManagement.html', {'page_title': 'Accounting Management'})
+    records = FinancialRecord.objects.all()
+    return render(request, 'accountingManagement.html', {'page_title': 'Accounting Management','records': records})
 
 def financialReport(request):
     return render(request, 'financialReport.html', {'page_title': 'Financial Reports'})
+
+
